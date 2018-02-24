@@ -1,0 +1,100 @@
+<section>
+    <div class="selector-container lastest">
+        <div class="w-row">
+            <div class="w-col w-col-12">
+                <div class="w-form">
+                    <form (ngSubmit)="updateTour()">
+                        <div class="w-row" *ngIf="(userRole == 'manager' && tour.status != 'approved' && tour.status != 'pending') || (userRole == 'finance_manager' && tour.status != 'approved')">
+                            <div class="w-col w-col-6">
+                                <h5>Status</h5>
+                                <select class="w-select" name="tourStatus" [(ngModel)]="tourStatus">
+                                    <option value="approved">Approve</option>
+                                    <option value="rejected">Reject</option>
+                                    <option value="request_information">Request Information</option>
+                                </select>
+                            </div>
+                            <div class="w-col w-col-6" *ngIf="financeManagers.length > 0 && tourStatus == 'approved' && userRole == 'manager' && tour.status != 'approved' && tour.status != 'pending'">
+                                <h5>Assign a Finance Manager</h5>
+                                <select title="Select a Finance Manager" id="field" name="field"
+                                        data-name="Field"
+                                        class="select-field-2 w-select" [(ngModel)]="tour.financeManagerId" >
+                                    <option *ngFor="let obj of financeManagers" [value]="obj.personId" >{{ obj.firstName }}</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="w-row">
+                            <div class="w-clearfix w-col w-col-12">
+                                <input type="submit"
+                                       *ngIf="(userRole == 'manager' && tour.status != 'approved' && tour.status != 'pending') || (userRole == 'finance_manager' && tour.status != 'approved')"
+                                       value="Update"
+                                       data-wait="Please wait..."
+                                       class="submit-button w-button float-right">
+                                <a routerLink="/manager/dashboard" class="back-button float-left w-button">View all requests</a>
+                                <div class="w-col w-col-6 status-message" *ngIf="(userRole == 'manager' && tour.status == 'pending')">Pending for Finance Manager's approval.</div>
+                                <div class="w-col w-col-6 status-message" *ngIf="(tour.status == 'request_information')">Requested for more information.</div>
+                                <div class="w-col w-col-6 status-message" *ngIf="(tour.status == 'approved')">Approved by Finance Manager.</div>
+                            </div>
+                        </div>
+                    </form>
+                    <div class="w-form-done">
+                        <div>Thank you! Your submission has been received!</div>
+                    </div>
+                    <div class="w-form-fail">
+                        <div>Oops! Something went wrong while submitting the form.</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="selector-container" *ngIf="tour">
+        <div class="row-2 w-row">
+            <div class="column-6 w-col w-col-9">
+                <h2 class="request-title-copy">{{ tour.title }}</h2>
+            </div>
+            <div class="column-7 w-clearfix w-col w-col-3">
+                <div class="text-block-5">{{ dateService.formatDate(tour.startDate) | date:'MMM d,y' }} to {{ dateService.formatDate(tour.endDate) | date:'MMM d,y' }}</div>
+            </div>
+        </div>
+        <div class="text-block-4">
+            {{ tour.purpose }}
+        </div>
+        <div class="text-block-4">
+            <table>
+                <tbody>
+                <tr>
+                    <td>Mode of Travel</td>
+                    <td>{{ tour.modeOfTravel }}</td>
+                </tr>
+                <tr>
+                    <td>Ticket Cost</td>
+                    <td>{{ tour.ticketCost }}</td>
+                </tr>
+                <tr>
+                    <td>Cab Fare - Home City</td>
+                    <td>{{ tour.airportCabHomeCityCost }}</td>
+                </tr>
+                <tr>
+                    <td>Cab Fare - Dest. City</td>
+                    <td>{{ tour.airportCabDestinationCityCost }}</td>
+                </tr>
+                <tr>
+                    <td>Hotel Cost</td>
+                    <td>{{ tour.hotelCost }}</td>
+                </tr>
+                <tr>
+                    <td>Other Conveyance Cost</td>
+                    <td>{{ tour.otherConveyanceCost }}</td>
+                </tr>
+                </tbody>
+                <tfoot>
+                <tr>
+                    <td>Total Expense</td>
+                    <td>{{ tour.ticketCost + tour.airportCabHomeCityCost + tour.airportCabDestinationCityCost + tour.airportCabDestinationCityCost + tour.hotelCost + tour.otherConveyanceCost }}</td>
+                </tr>
+                </tfoot>
+
+
+            </table>
+        </div>
+    </div>
+</section>

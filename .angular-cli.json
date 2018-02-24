@@ -19,6 +19,9 @@
       "testTsconfig": "tsconfig.spec.json",
       "prefix": "app",
       "styles": [
+        "assets/styles/normalize.css",
+        "assets/styles/webflow.css",
+        "assets/styles/theme.webflow.css",
         "styles.css"
       ],
       "scripts": [],

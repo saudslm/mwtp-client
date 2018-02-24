@@ -1,0 +1,90 @@
+<section>
+  <div class="selector-container">
+    <div class="w-row">
+      <div class="padding-none w-col w-col-9">
+        <h1 class="main-header">Travel Portal Requests</h1>
+        <div>You have {{ tours.open.length }} open requests.</div>
+      </div>
+    </div>
+  </div>
+  <div class="selector-container lastest" *ngIf="tours.open.length > 0">
+    <h2 class="open-request-header">Open Request</h2>
+    <div class="row-border w-row" *ngFor="let tour of tours.open">
+      <div class="w-col w-col-2"><img src="assets/images/pending-icon_1.svg"></div>
+      <div class="w-col w-col-2 request-name-padding">RM {{ tour.ticketCost + tour.airportCabHomeCityCost + tour.airportCabDestinationCityCost + tour.hotelCost + tour.otherConveyanceCost }}</div>
+      <div class="request-name-padding w-col w-col-4"><a routerLink="/manager/tour/{{tour.tourId}}">{{ tour.title }}</a></div>
+      <div class="w-col w-col-3">
+        <div class="date">{{ dateService.formatDate(tour.startDate) | date:'MMM d,y'}} to {{ dateService.formatDate(tour.endDate) | date:'MMM d,y' }}</div>
+      </div>
+      <div class="w-col w-col-1">
+        <div class="badge-name secondary-color float-right">
+          <div>NS</div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="selector-container lastest" *ngIf="tours.requestedInformation.length > 0">
+    <h2 class="open-request-header">Requested for Information</h2>
+    <div class="row-border w-row" *ngFor="let tour of tours.requestedInformation">
+      <div class="w-col w-col-2"><img src="assets/images/more-info-icon.svg"></div>
+      <div class="w-col w-col-2 request-name-padding">RM {{ tour.ticketCost + tour.airportCabHomeCityCost + tour.airportCabDestinationCityCost + tour.hotelCost + tour.otherConveyanceCost }}</div>
+      <div class="request-name-padding w-col w-col-4"><a routerLink="/manager/tour/{{tour.tourId}}">{{ tour.title }}</a></div>
+      <div class="w-col w-col-3">
+        <div class="date">{{ dateService.formatDate(tour.startDate) | date:'MMM d,y'}} to {{ dateService.formatDate(tour.endDate) | date:'MMM d,y' }}</div>
+      </div>
+      <div class="w-col w-col-1">
+        <div class="badge-name secondary-color float-right">
+          <div>NS</div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="selector-container" *ngIf="tours.pending.length > 0">
+    <h2 class="previous-request-header">Pending Requests</h2>
+    <div class="row-border w-row" *ngFor="let tour of tours.pending">
+      <div class="w-col w-col-2"><img src="assets/images/pending-icon.svg"></div>
+      <div class="w-col w-col-2 request-name-padding">RM {{ tour.ticketCost + tour.airportCabHomeCityCost + tour.airportCabDestinationCityCost + tour.hotelCost + tour.otherConveyanceCost }}</div>
+      <div class="request-name-padding w-col w-col-4"><a routerLink="/manager/tour/{{tour.tourId}}">{{ tour.title }}</a></div>
+      <div class="w-col w-col-3">
+        <div class="date">{{ dateService.formatDate(tour.startDate) | date:'MMM d,y'}} to {{ dateService.formatDate(tour.endDate) | date:'MMM d,y' }}</div>
+      </div>
+      <div class="w-clearfix w-col w-col-1">
+        <div class="badge-name float-right">
+          <div>CJ</div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="selector-container" *ngIf="tours.approved.length > 0">
+    <h2 class="completed-header">Approved Requests</h2>
+    <div class="row-border w-row" *ngFor="let tour of tours.approved">
+      <div class="w-col w-col-2"><img src="assets/images/completed-icon.svg"></div>
+      <div class="w-col w-col-2 request-name-padding">RM {{ tour.ticketCost + tour.airportCabHomeCityCost + tour.airportCabDestinationCityCost + tour.hotelCost + tour.otherConveyanceCost }}</div>
+      <div class="request-name-padding w-col w-col-4"><a routerLink="/manager/tour/{{tour.tourId}}">{{ tour.title }}</a></div>
+      <div class="w-col w-col-3">
+        <div class="date">{{ dateService.formatDate(tour.startDate) | date:'MMM d,y'}} to {{ dateService.formatDate(tour.endDate) | date:'MMM d,y' }}</div>
+      </div>
+      <div class="w-col w-col-1">
+        <div class="badge-name secondary-color float-right">
+          <div>NS</div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="selector-container" *ngIf="tours.rejected.length > 0">
+    <h2 class="rejected-header">Rejected Requests</h2>
+    <div class="row-border w-row" *ngFor="let tour of tours.rejected">
+      <div class="w-col w-col-2"><img src="assets/images/rejected.svg"></div>
+      <div class="w-col w-col-2 request-name-padding">RM {{ tour.ticketCost + tour.airportCabHomeCityCost + tour.airportCabDestinationCityCost + tour.hotelCost + tour.otherConveyanceCost }}</div>
+      <div class="request-name-padding w-col w-col-4"><a routerLink="/manager/tour/{{tour.tourId}}">{{ tour.title }}</a></div>
+      <div class="w-col w-col-3">
+        <div class="date">{{ dateService.formatDate(tour.startDate) | date:'MMM d,y'}} to {{ dateService.formatDate(tour.endDate) | date:'MMM d,y' }}</div>
+      </div>
+      <div class="w-col w-col-1">
+        <div class="badge-name secondary-color float-right">
+          <div>NS</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

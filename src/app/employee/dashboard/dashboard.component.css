@@ -1,0 +1,18 @@
+.open-request-header{
+    color: #1991c7;
+    margin-top: 0px;
+    font-size: 15px;
+}
+.completed-header{
+    color: #72c762;
+}
+.rejected-header{
+    color: #c76162;
+    margin-top: 0px;
+    font-size: 15px;
+}
+.more-info-header{
+    color: #ffc578;
+    margin-top: 0px;
+    font-size: 15px;
+}

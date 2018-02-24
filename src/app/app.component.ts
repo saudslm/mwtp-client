@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
+
 
 @Component({
   selector: 'app-root',
@@ -7,4 +9,17 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'app';
+
+  constructor(private router : Router) {}
+
+  logout() {
+    localStorage.removeItem("userToken");
+    localStorage.removeItem("userRole");
+    this.router.navigate(['/login']);
+    return false;
+  }
+
+  isUserLoggedIn() {
+    return localStorage.getItem("userToken") != null && localStorage.getItem("userRole") != null;
+  }
 }

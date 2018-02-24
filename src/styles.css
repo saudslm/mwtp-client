@@ -1,1 +1,20 @@
 /* You can add global styles to this file, and also import other style files */
+.container{
+    position: relative;
+}
+.selector-container, .w-tabs {
+    box-shadow: 0 0 0 1px rgba(63, 63, 68, 0.05), 0 1px 3px 0 rgba(63, 63, 68, 0.15);
+}
+
+.btn {
+    background: linear-gradient(to bottom, #6371c7, #5563c1);
+}
+
+.btn.secondary {
+    background: #fafbfc;
+    border: 1px solid #c4cdd5;
+}
+.text-field-3{
+    float: none;
+    width: 100%;
+}

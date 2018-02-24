@@ -1,0 +1,25 @@
+<section class="login-section">
+  <div class="selector-container lastest add-url">
+    <div>
+      <div class="w-form">
+        <form (ngSubmit)="onLoginFormSubmit()" class="form w-clearfix">
+          <input type="text" class="text-field-3 w-input" maxlength="256" name="username"
+                 data-name="username" placeholder="Username" id="username" required=""
+                 [(ngModel)]="model.username"  >
+
+          <input type="password" class="text-field-3 w-input" maxlength="256" name="password"
+                 data-name="password" placeholder="Password" id="password" required=""
+                 [(ngModel)]="model.password"  >
+          <input type="submit" value="Sign In" data-wait="Please wait..."
+                 class="submit-button-3 w-button">
+        </form>
+        <div class="w-form-done">
+          <div>Thank you! Your submission has been received!</div>
+        </div>
+        <div class="w-form-fail">
+          <div>Oops! Something went wrong while submitting the form.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

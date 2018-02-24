@@ -1,0 +1,21 @@
+table{
+    display: block;
+    width: 100%;
+    overflow: auto;
+}
+tr{
+    background-color: #fff;
+    border-top: 1px solid #c6cbd1;
+}
+td{
+    padding: 6px 13px;
+    border: 1px solid #dfe2e5;
+}
+tfoot tr{
+    background-color: #f6f8fa;
+}
+.status-message{
+    float: right;
+    margin-top: 10px;
+    color: #e48532;
+}
