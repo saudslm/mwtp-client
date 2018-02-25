@@ -3,6 +3,7 @@ import { HttpClient } from '@angular/common/http';
 import { ActivatedRoute, Router } from '@angular/router';
 import { environment } from '../../environments/environment';
 import {DateService} from "../services/date.service";
+import { TourEntity } from "../model/tour-entity";
 
 @Component({
   selector: 'app-tour',
@@ -16,7 +17,7 @@ export class TourComponent implements OnInit {
   public dateService = DateService;
   tourId: number;
   private sub: any;
-  tour = {};
+  tour: TourEntity;
   financeManagers = [];
 
   constructor(private httpClient: HttpClient, private route: ActivatedRoute, private router: Router) { }
