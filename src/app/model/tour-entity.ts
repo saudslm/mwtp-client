@@ -11,4 +11,5 @@ export class TourEntity {
     public hotelCost: any;
     public otherConveyanceCost: any;
     public status: string;
+    public links: any;
 }
