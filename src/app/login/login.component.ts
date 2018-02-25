@@ -21,7 +21,7 @@ export class LoginComponent implements OnInit {
   ngOnInit() {
   }
 
-  onLoginFormSubmit(e) {
+  onLoginFormSubmit() {
     //e.preventDefault();
     this.httpClient.post(environment.apiUrl + "account/login", {
       username: this.model.username,
