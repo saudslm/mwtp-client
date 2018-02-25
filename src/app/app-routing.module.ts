@@ -8,6 +8,9 @@ import {ManagerDashboardComponent} from "./manager/manager-dashboard/manager-das
 import {TourComponent} from "./tour/tour.component";
 
 const routes: Routes = [
+  { path: '',
+    redirectTo: '/login'
+  },
   {
     path: "login",
     component: LoginComponent
