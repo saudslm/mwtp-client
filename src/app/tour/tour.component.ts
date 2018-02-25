@@ -34,7 +34,7 @@ export class TourComponent implements OnInit {
 
   getTour() {
     this.httpClient.get(environment.apiUrl + "tour/" + this.tourId).subscribe(
-        (data:any[]) => {
+        (data:TourEntity) => {
           console.log("TOUR", data);
           this.tour = data;
           this.tourStatus = this.tour['status'];
