@@ -9,6 +9,10 @@ import {TourComponent} from "./tour/tour.component";
 
 const routes: Routes = [
   {
+    path: "/",
+    component: LoginComponent
+  },
+  {
     path: "login",
     component: LoginComponent
   },
