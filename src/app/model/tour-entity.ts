@@ -4,7 +4,6 @@ export class TourEntity {
     public purpose: string;
     public startDate: string;
     public endDate: string;
-    public endDate: string;
     public modeOfTravel: string;
     public ticketCost: number;
     public airportCabHomeCityCost: number;
